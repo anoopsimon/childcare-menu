@@ -2,4 +2,4 @@
 
 > Vibecoded, just for fun !
 
-<img width="748" height="1780" alt="image" src="https://github.com/user-attachments/assets/6cb0cf97-373c-4815-a8b6-c60e5bb129c9" />
+<img width="694" height="1760" alt="image" src="https://github.com/user-attachments/assets/80a5186c-6a87-4109-b0cf-48dbf7c6a0cc" />

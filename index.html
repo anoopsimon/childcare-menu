@@ -6,7 +6,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
-  <title>Childcare menu today</title>
+  <title>DIA childcare menu today</title>
   <style>
     :root{
       --bg1:#fff8ef;
@@ -340,6 +340,13 @@
       color:#607067;
     }
 
+    .meal-time{
+      margin:0 0 8px 50px;
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+    }
+
     .meal-tags{
       display:flex;
       gap:6px;
@@ -448,7 +455,7 @@
     <section class="shell">
       <div class="top">
         <div class="eyebrow"><span class="bubble"></span> DIA Childcare</div>
-        <h1>Childcare menu today</h1>
+        <h1>DIA childcare menu today</h1>
         <div class="sub" id="subtitle"></div>
 
         <div class="room-toggle">
@@ -477,17 +484,42 @@
         breakfast: {
           title: "Breakfast",
           main: "Selection of cereal and toast with spreads",
-          extra: "Served with milk"
+          extra: "Served with milk",
+          time: "6:30am to 8:00am"
         },
         lunchSide: {
           title: "Lunch side",
           main: "Plate of assorted sandwiches",
-          extra: ""
+          extra: "",
+          time: "With lunch"
         },
         lateSnack: {
           title: "Late snack",
           main: "Crackers and dried fruit",
-          extra: ""
+          extra: "",
+          time: "See weekly late snack timing"
+        }
+      },
+      times: {
+        1: {
+          morningTea: "9:00am to 10:00am",
+          afternoonTea: "2:30pm to 3:30pm",
+          lateSnack: "5:00pm snack also offered"
+        },
+        2: {
+          morningTea: "9:00am to 10:30am",
+          afternoonTea: "2:30pm to 3:00pm",
+          lateSnack: "5:00pm snack also offered"
+        },
+        3: {
+          morningTea: "9:30am to 10:30am",
+          afternoonTea: "2:30pm to 3:30pm",
+          lateSnack: "5:00pm snack also offered"
+        },
+        4: {
+          morningTea: "9:00am to 9:30am",
+          afternoonTea: "2:30pm to 3:00pm",
+          lateSnack: "5:30pm snack also offered"
         }
       },
       weeks: {
@@ -617,8 +649,6 @@
     const weekdayNames = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
     const prettyWeekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-    // Confirmed by childcare:
-    // 16 Mar 2026 Monday = Week 3 Monday
     const CYCLE_CONFIG = {
       cycleStartDate: new Date(2026, 2, 16),
       cycleStartWeek: 3
@@ -666,7 +696,7 @@
       const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
       const mealEnds = {
-        breakfast: 9 * 60,
+        breakfast: 8 * 60,
         morningTea: 10 * 60 + 30,
         lunch: 13 * 60 + 30,
         lunchSide: 13 * 60 + 30,
@@ -675,7 +705,7 @@
       };
 
       const mealStarts = {
-        breakfast: 7 * 60,
+        breakfast: 6 * 60 + 30,
         morningTea: 9 * 60,
         lunch: 11 * 60 + 30,
         lunchSide: 11 * 60 + 30,
@@ -720,7 +750,7 @@
       }[slot];
     }
 
-    function renderMealCard(slot, title, main, extra, state){
+    function renderMealCard(slot, title, main, extra, state, time){
       const tag = getFoodTag((main || "") + " " + (extra || ""));
       const meta = getMealMeta(slot);
 
@@ -736,6 +766,7 @@
             </div>
             <div class="meal-status">${stateLabel(state)}</div>
           </div>
+          ${time ? `<div class="meal-time">🕒 ${time}</div>` : ""}
           <div class="meal-tags">${tag}</div>
           <div class="meal-main">${main}</div>
           ${extra ? `<div class="meal-extra">${extra}</div>` : ``}
@@ -764,6 +795,7 @@
 
       const weekNumber = getRotatingWeekNumber(date);
       const dayMenu = menuSource.weeks[weekNumber][dayName];
+      const weekTimes = menuSource.times[weekNumber];
 
       return {
         weekend: false,
@@ -773,37 +805,43 @@
             slot: "breakfast",
             title: menuSource.common.breakfast.title,
             main: menuSource.common.breakfast.main,
-            extra: menuSource.common.breakfast.extra
+            extra: menuSource.common.breakfast.extra,
+            time: menuSource.common.breakfast.time
           },
           {
             slot: "morningTea",
             title: "Morning tea",
             main: dayMenu.morningTea.main,
-            extra: dayMenu.morningTea.extra
+            extra: dayMenu.morningTea.extra,
+            time: weekTimes.morningTea
           },
           {
             slot: "lunch",
             title: "Lunch",
             main: dayMenu.lunch.main,
-            extra: dayMenu.lunch.extra
+            extra: dayMenu.lunch.extra,
+            time: "Lunch time"
           },
           {
             slot: "lunchSide",
             title: menuSource.common.lunchSide.title,
             main: menuSource.common.lunchSide.main,
-            extra: menuSource.common.lunchSide.extra
+            extra: menuSource.common.lunchSide.extra,
+            time: menuSource.common.lunchSide.time
           },
           {
             slot: "afternoonTea",
             title: "Afternoon tea",
             main: dayMenu.afternoonTea.main,
-            extra: dayMenu.afternoonTea.extra
+            extra: dayMenu.afternoonTea.extra,
+            time: weekTimes.afternoonTea
           },
           {
             slot: "lateSnack",
             title: menuSource.common.lateSnack.title,
             main: menuSource.common.lateSnack.main,
-            extra: menuSource.common.lateSnack.extra
+            extra: menuSource.common.lateSnack.extra,
+            time: weekTimes.lateSnack
           }
         ]
       };
@@ -827,7 +865,7 @@
       document.getElementById("footerNote").textContent =
         currentRoom === "kinder"
           ? "Kinder is currently using the same menu data as Pre-Kinder. Replace KINDER_MENU later with the actual Kinder schedule."
-          : "Breakfast, lunch side and late snack are standard weekday items from the menu board.";
+          : "Week cycle anchored to 16 Mar 2026 as Week 3 Monday. Update the cycle config if childcare changes the rotation.";
 
       const content = document.getElementById("content");
 
@@ -838,7 +876,7 @@
 
       const cards = data.meals.map(meal => {
         const state = getMealState(meal.slot, viewedDate, now);
-        return renderMealCard(meal.slot, meal.title, meal.main, meal.extra, state);
+        return renderMealCard(meal.slot, meal.title, meal.main, meal.extra, state, meal.time);
       }).join("");
 
       content.innerHTML = `<div class="menu-list">${cards}</div>`;

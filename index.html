@@ -617,7 +617,13 @@
     const weekdayNames = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"];
     const prettyWeekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-    const anchorDate = new Date(2026, 2, 17); // 17 Mar 2026 = Week 4 Tuesday
+    // Confirmed by childcare:
+    // 16 Mar 2026 Monday = Week 3 Monday
+    const CYCLE_CONFIG = {
+      cycleStartDate: new Date(2026, 2, 16),
+      cycleStartWeek: 3
+    };
+
     let viewOffset = 0;
     let currentRoom = "prekinder";
 
@@ -631,18 +637,6 @@
       return d;
     }
 
-    function dayDiff(a, b){
-      const ms = startOfDay(a) - startOfDay(b);
-      return Math.round(ms / 86400000);
-    }
-
-    function getRotatingWeekNumber(date){
-      const diff = dayDiff(date, anchorDate);
-      const anchorWeekIndex = 3;
-      const rotated = (((anchorWeekIndex + Math.floor(diff / 7)) % 4) + 4) % 4;
-      return rotated + 1;
-    }
-
     function formatDate(date){
       return new Intl.DateTimeFormat("en-AU", {
         weekday: "short",
@@ -650,6 +644,16 @@
         month: "short",
         year: "numeric"
       }).format(date);
+    }
+
+    function getRotatingWeekNumber(date){
+      const cycleStart = startOfDay(CYCLE_CONFIG.cycleStartDate);
+      const target = startOfDay(date);
+      const diffDays = Math.floor((target - cycleStart) / 86400000);
+      const weekOffset = Math.floor(diffDays / 7);
+      const startWeekIndex = CYCLE_CONFIG.cycleStartWeek - 1;
+      const weekIndex = (((startWeekIndex + weekOffset) % 4) + 4) % 4;
+      return weekIndex + 1;
     }
 
     function getMealState(slot, viewedDate, now){

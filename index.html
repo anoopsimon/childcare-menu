@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +65,7 @@
   }
   @keyframes bounce {
     0%, 100% { transform: translateY(0) rotate(-3deg); }
-    50%       { transform: translateY(-12px) rotate(3deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
   }
   .hero h1 {
     font-family: 'Fredoka One', cursive;
@@ -107,7 +108,7 @@
   }
   @keyframes photoWiggle {
     0%, 100% { transform: rotate(-2deg) scale(1); }
-    50%       { transform: rotate(2deg) scale(1.03); }
+    50% { transform: rotate(2deg) scale(1.03); }
   }
   .photo-badges {
     position: absolute;
@@ -122,7 +123,7 @@
     animation: spin 5s linear infinite reverse;
   }
   @keyframes spin {
-    0%   { transform: rotate(0deg); }
+    0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
 
@@ -134,18 +135,14 @@
     color: #222;
   }
 
-  .cake-section, .balloon-section, .gifts-section, .dance-section, .unbox-section, .piano-section {
-    margin: 16px auto;
-    max-width: 500px;
-    border-radius: 24px;
-    padding: 20px;
-  }
-
   .cake-section {
     background: linear-gradient(135deg, #fff0fa 0%, #fff8e1 100%);
     border: 4px solid #333;
-    box-shadow: 6px 6px 0 #333;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
     padding: 24px 20px;
+    box-shadow: 6px 6px 0 #333;
   }
   .cake-wrap {
     display: flex;
@@ -176,7 +173,7 @@
   }
   .flame.out { opacity: 0; animation: none; box-shadow: none; }
   @keyframes flicker {
-    0%   { transform: scaleX(1) scaleY(1) rotate(-3deg); }
+    0% { transform: scaleX(1) scaleY(1) rotate(-3deg); }
     100% { transform: scaleX(0.85) scaleY(1.1) rotate(3deg); }
   }
   .candle-body {
@@ -215,14 +212,18 @@
     animation: popIn 0.4s ease;
   }
   @keyframes popIn {
-    0%   { transform: scale(0); }
-    70%  { transform: scale(1.15); }
+    0% { transform: scale(0); }
+    70% { transform: scale(1.15); }
     100% { transform: scale(1); }
   }
 
   .balloon-section {
     background: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 100%);
     border: 4px solid #333;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
+    padding: 20px;
     box-shadow: 6px 6px 0 #333;
   }
   .balloon-arena {
@@ -245,12 +246,12 @@
   .balloon:hover { transform: scale(1.15); }
   .balloon.popped { animation: popBalloon 0.3s ease forwards !important; }
   @keyframes floatUp {
-    0%   { bottom: -60px; }
+    0% { bottom: -60px; }
     100% { bottom: 110%; }
   }
   @keyframes popBalloon {
-    0%   { transform: scale(1); opacity: 1; }
-    50%  { transform: scale(1.6); opacity: 0.5; }
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.5; }
     100% { transform: scale(0); opacity: 0; }
   }
   .score-bar {
@@ -258,7 +259,6 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    gap: 12px;
   }
   .score-display {
     font-family: 'Fredoka One', cursive;
@@ -266,25 +266,27 @@
     color: #333;
   }
   .score-display span { color: var(--orange); font-size: 30px; }
-  .balloon-btn, .big-confetti-btn, .audio-btn {
-    border: 3px solid #333;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: 'Fredoka One', cursive;
-    transition: all 0.15s;
-  }
   .balloon-btn {
     background: var(--green);
     color: #fff;
+    border: 3px solid #333;
+    border-radius: 50px;
     padding: 8px 20px;
+    font-family: 'Fredoka One', cursive;
     font-size: 18px;
+    cursor: pointer;
     box-shadow: 3px 3px 0 #333;
+    transition: all 0.15s;
   }
   .balloon-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 #333; }
 
   .gifts-section {
     background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
     border: 4px solid #333;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
+    padding: 20px;
     box-shadow: 6px 6px 0 #333;
   }
   .gifts-grid {
@@ -328,6 +330,10 @@
   .dance-section {
     background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 100%);
     border: 4px solid #333;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
+    padding: 20px;
     box-shadow: 6px 6px 0 #333;
     text-align: center;
   }
@@ -341,8 +347,8 @@
   }
   .dino.dancing { animation: dinoParty 0.3s ease-in-out infinite alternate; }
   @keyframes dinoParty {
-    0%   { transform: rotate(-15deg) scale(1.1) translateY(-8px); }
-    100% { transform: rotate(15deg)  scale(0.95) translateY(4px); }
+    0% { transform: rotate(-15deg) scale(1.1) translateY(-8px); }
+    100% { transform: rotate(15deg) scale(0.95) translateY(4px); }
   }
   .dance-hint {
     font-size: 15px;
@@ -363,14 +369,18 @@
     animation: noteFloat 1.5s ease forwards;
   }
   @keyframes noteFloat {
-    0%   { opacity: 0; transform: translateY(10px); }
-    30%  { opacity: 1; }
+    0% { opacity: 0; transform: translateY(10px); }
+    30% { opacity: 1; }
     100% { opacity: 0; transform: translateY(-40px); }
   }
 
   .unbox-section {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     border: 4px solid #333;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
+    padding: 24px 20px;
     box-shadow: 6px 6px 0 #333;
     text-align: center;
   }
@@ -415,23 +425,18 @@
   .piano-section {
     background: linear-gradient(135deg, #0d0d1a 0%, #1a0a2e 100%);
     border: 4px solid #E31D1C;
+    border-radius: 24px;
+    margin: 16px auto;
+    max-width: 500px;
+    padding: 22px 16px 24px;
     box-shadow: 6px 6px 0 #E31D1C;
     text-align: center;
-    padding: 22px 16px 24px;
   }
   .piano-section .section-title { color: #fff; text-shadow: 2px 2px 0 #E31D1C; margin-top: 0; }
   .spidey-head { font-size: 52px; display: inline-block; animation: spideyBob 2s ease-in-out infinite; filter: drop-shadow(0 0 12px rgba(227,29,28,0.7)); }
   @keyframes spideyBob { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
   .piano-score-row { display: flex; justify-content: center; gap: 20px; margin: 8px 0 14px; font-family: 'Fredoka One', cursive; font-size: 16px; color: #aaa; flex-wrap: wrap; }
   .piano-score-row span { color: #FFD93D; font-size: 20px; }
-  .audio-btn {
-    background: #FFD93D;
-    color: #222;
-    padding: 8px 16px;
-    font-size: 14px;
-    box-shadow: 3px 3px 0 #333;
-  }
-  .audio-btn.hidden { display: none; }
   .piano-keys { display: flex; justify-content: center; position: relative; height: 130px; user-select: none; margin: 0 auto 12px; touch-action: manipulation; }
   .white-key {
     width: clamp(34px, 8vw, 48px); height: 120px;
@@ -458,7 +463,19 @@
   .note-bubble { position: absolute; font-family: 'Fredoka One', cursive; font-size: 18px; color: #FFD93D; pointer-events: none; animation: notePop 0.9s ease forwards; z-index: 20; text-shadow: 1px 1px 0 #E31D1C; }
   @keyframes notePop { 0% { opacity:1; transform: translateY(0) scale(1); } 100% { opacity:0; transform: translateY(-60px) scale(0.6); } }
   .piano-hint { font-size: 14px; color: #ccc; font-weight: 700; margin-top: 4px; }
-  .spidey-quote { font-family: 'Fredoka One', cursive; font-size: 15px; color: #fff; background: rgba(227,29,28,0.15); border: 2px solid #E31D1C; border-radius: 12px; padding: 8px 14px; margin-top: 10px; min-height: 34px; transition: all 0.3s; }
+  .spidey-quote { font-family: 'Fredoka One', cursive; font-size: 15px; color: #fff; background: rgba(227,29,28,0.12); border: 2px solid #E31D1C; border-radius: 12px; padding: 8px 14px; margin-top: 10px; min-height: 34px; transition: all 0.3s; }
+  .audio-btn {
+    background: #FFD93D;
+    color: #222;
+    border: 3px solid #333;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #333;
+    margin-bottom: 12px;
+  }
 
   .bottom-msg {
     text-align: center;
@@ -476,9 +493,13 @@
     background: linear-gradient(135deg, var(--pink), var(--purple));
     color: white;
     border: 4px solid #333;
+    border-radius: 50px;
     padding: 14px 32px;
+    font-family: 'Fredoka One', cursive;
     font-size: clamp(18px, 4vw, 26px);
+    cursor: pointer;
     box-shadow: 6px 6px 0 #333;
+    transition: all 0.15s;
     letter-spacing: 1px;
   }
   .big-confetti-btn:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 #333; }
@@ -493,14 +514,10 @@
   }
   @keyframes decoFloat {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50%       { transform: translateY(-20px) rotate(10deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
   }
 
   .page-wrap { max-width: 540px; margin: 0 auto; padding: 0 14px; position: relative; z-index: 1; }
-
-  @media (max-width: 520px) {
-    .gifts-grid { grid-template-columns: repeat(2, 1fr); }
-  }
 </style>
 </head>
 <body>
@@ -513,6 +530,7 @@
 <div class="deco" style="top:90%;right:6%;animation-duration:3.8s;animation-delay:0.8s;">🦕</div>
 
 <div class="page-wrap">
+
   <div class="hero">
     <div class="stars-row">⭐🌟⭐🌟⭐🌟⭐</div>
     <div class="age-badge">6</div>
@@ -522,7 +540,7 @@
 
   <div class="photo-section">
     <div class="photo-frame-wrap" id="photoFrameWrap">
-      <img class="photo-frame" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAVElEQVR42mP8//8/Azbw////M4YGBgaGkZERQ4YMSQYGBhYWFgZGRiYGBgY2NjY8ePEjAwMDBQUFCA0NDREREcHh4SExMTEz8/PxgYGJjY2NiYmBjA0NDAwMAAPwbE7t2EXmQAAAAAElFTkSuQmCC" alt="Dhruv" id="photoImg">
+      <img class="photo-frame" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Ccircle cx='120' cy='120' r='118' fill='%23ffe37a' stroke='%23333' stroke-width='4'/%3E%3Ctext x='120' y='110' text-anchor='middle' font-size='72'%3E%F0%9F%8E%82%3C/text%3E%3Ctext x='120' y='155' text-anchor='middle' font-size='24' fill='%23333'%3EDhruv%3C/text%3E%3C/svg%3E" alt="Dhruv" id="photoImg">
       <div class="photo-badges">⭐</div>
       <div class="photo-badges2">🎈</div>
     </div>
@@ -592,12 +610,10 @@
   <div class="piano-section">
     <div class="section-title">🎹 Spidey Piano!</div>
     <div class="spidey-head" id="spideyHead">🕷️</div>
-    <div class="piano-score-row">
-      <div>Notes played: <span id="noteCount">0</span></div>
-      <button id="startAudioBtn" class="audio-btn">Tap to enable piano sound</button>
-    </div>
+    <div class="piano-score-row">Notes played: <span id="noteCount">0</span></div>
+    <button id="startAudioBtn" class="audio-btn" onclick="unlockAudio()">Tap to enable piano sound</button>
     <div class="piano-keys" id="pianoKeys"></div>
-    <div class="piano-hint">Tap the button once, then tap keys to play music. 🎵</div>
+    <div class="piano-hint">Tap enable once, then tap keys to play. 🎵</div>
     <div class="spidey-quote" id="spideyQuote">Play a key and Spidey will cheer you on! 🕸️</div>
   </div>
 
@@ -605,6 +621,7 @@
     <p>You are SO loved, Dhruv! 🌈 Have the most magical, wonderful, super-amazing 6th birthday ever! 🥳</p>
     <button class="big-confetti-btn" onclick="bigConfetti()">🎊 More Confetti! 🎊</button>
   </div>
+
 </div>
 
 <script>
@@ -634,7 +651,8 @@
       spawnConfettiBurst(5);
       if (blownCount === totalCandles) {
         document.getElementById('blowHint').textContent = '';
-        document.getElementById('cakeMsg').textContent = '🎉 Make a wish, Dhruv! 🎉';
+        const msg = document.getElementById('cakeMsg');
+        msg.textContent = '🎉 Make a wish, Dhruv! 🎉';
         bigConfetti();
       }
     }
@@ -660,7 +678,11 @@
       }, i * 60);
     }
   }
-  function bigConfetti() { spawnConfettiBurst(60); }
+
+  function bigConfetti() {
+    spawnConfettiBurst(60);
+  }
+
   setTimeout(bigConfetti, 400);
 
   let balloonScore = 0;
@@ -688,7 +710,10 @@
     b.className = 'balloon';
     b.textContent = balloonEmojis[Math.floor(Math.random() * balloonEmojis.length)];
     const duration = 2.5 + Math.random() * 2;
-    b.style.cssText = `left:${5 + Math.random()*80}%; animation-duration:${duration}s;`;
+    b.style.cssText = `
+      left: ${5 + Math.random()*80}%;
+      animation-duration: ${duration}s;
+    `;
     b.addEventListener('click', () => {
       if (b.classList.contains('popped')) return;
       b.classList.add('popped');
@@ -707,8 +732,9 @@
     { emoji: '🚀', label: 'Rocket Ship', msg: 'To the moon & back! 🌙', color: '#4ECDC4' },
     { emoji: '🍰', label: 'Magic Cake',  msg: 'Endless cake forever! 🎂', color: '#FFD93D' },
     { emoji: '🎮', label: 'Game Time',   msg: 'Play all day, every day! 🕹️', color: '#FF9F43' },
-    { emoji: '🌈', label: 'Rainbow',     msg: 'Sunshine & rainbows always! ☀️', color: '#FF6B9D' }
+    { emoji: '🌈', label: 'Rainbow',     msg: 'Sunshine & rainbows always! ☀️', color: '#FF6B9D' },
   ];
+
   function buildGifts() {
     const grid = document.getElementById('giftsGrid');
     giftMessages.forEach((g) => {
@@ -730,6 +756,7 @@
   let dancing = false;
   let noteInterval = null;
   const noteEmojis = ['🎵','🎶','🎸','🥁','🎺','🎻','💃','🕺'];
+
   function toggleDance() {
     dancing = !dancing;
     const dino = document.getElementById('dino');
@@ -758,7 +785,7 @@
     { wrap: '📦', msg: 'A box inside a box! So exciting!!', color: '#FF9F43' },
     { wrap: '🛍️', msg: 'A gift bag! Almost there Dhruv...', color: '#C77DFF' },
     { wrap: '✨', msg: 'Tissue paper!! One more tap!!!', color: '#4ECDC4' },
-    { wrap: '🕷️', msg: '🎉 SPIDER-MAN is here for your birthday!! 🎉', color: '#FFD93D', final: true }
+    { wrap: '🕷️', msg: '🎉 SPIDER-MAN is here for your birthday!! 🎉', color: '#FFD93D', final: true },
   ];
   let unboxStep = 0;
 
@@ -820,14 +847,16 @@
         content.classList.remove('show');
         content.style.animation = '';
         msg.textContent = 'Amazing!! Tap again to unbox again! 🎉';
-        document.querySelectorAll('.layer-dot').forEach(d => d.classList.remove('done'));
+        document.getElementById('layerProgress').querySelectorAll('.layer-dot').forEach(d => d.classList.remove('done'));
         document.getElementById('bigBox').style.cursor = 'pointer';
       }, 5000);
       return;
     }
 
     unboxStep++;
-    setTimeout(() => { content.classList.remove('show'); }, 700);
+    setTimeout(() => {
+      content.classList.remove('show');
+    }, 700);
   }
 
   const pianoNotes = [
@@ -843,7 +872,7 @@
     { note: 'A4',  freq: 440.00, white: true,  label: 'A' },
     { note: 'A#4', freq: 466.16, white: false },
     { note: 'B4',  freq: 493.88, white: true,  label: 'B' },
-    { note: 'C5',  freq: 523.25, white: true,  label: 'C' }
+    { note: 'C5',  freq: 523.25, white: true,  label: 'C' },
   ];
 
   const spideyQuotes = [
@@ -854,11 +883,10 @@
     '🕷️ Even Spider-Man can\'t play this well!',
     '⭐ Thwip! That note was perfect!',
     '🎸 Rock on, birthday superstar!',
-    '🕸️ Your music saves the city!'
+    '🕸️ Your music saves the city!',
   ];
 
   let audioCtx = null;
-  let audioUnlocked = false;
   let noteCount = 0;
 
   function getAudioCtx() {
@@ -870,51 +898,38 @@
 
   async function unlockAudio() {
     const ctx = getAudioCtx();
-
     if (ctx.state !== 'running') {
       await ctx.resume();
     }
-
-    const buffer = ctx.createBuffer(1, 1, 22050);
-    const source = ctx.createBufferSource();
-    source.buffer = buffer;
-    source.connect(ctx.destination);
-    source.start(0);
-
-    audioUnlocked = true;
     const btn = document.getElementById('startAudioBtn');
-    if (btn) {
-      btn.textContent = 'Piano sound enabled';
-      btn.classList.add('hidden');
-    }
+    if (btn) btn.textContent = 'Sound enabled';
     return ctx;
   }
 
   async function playNote(freq, keyEl) {
-    try {
-      const ctx = await unlockAudio();
-      const now = ctx.currentTime;
+    const ctx = await unlockAudio();
+    const now = ctx.currentTime;
 
-      const gain = ctx.createGain();
-      gain.connect(ctx.destination);
-      gain.gain.setValueAtTime(0, now);
-      gain.gain.linearRampToValueAtTime(0.4, now + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+    const gain = ctx.createGain();
+    gain.connect(ctx.destination);
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.4, now + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
 
-      [1, 2, 3].forEach((harmonic, i) => {
-        const osc = ctx.createOscillator();
-        const hGain = ctx.createGain();
-        osc.connect(hGain);
-        hGain.connect(gain);
-        osc.type = i === 0 ? 'triangle' : 'sine';
-        osc.frequency.setValueAtTime(freq * harmonic, now);
-        hGain.gain.setValueAtTime([0.6, 0.3, 0.1][i], now);
-        osc.start(now);
-        osc.stop(now + 1.2);
-      });
-    } catch (e) {
-      console.error('Audio failed:', e);
-    }
+    [1, 2, 3].forEach((harmonic, i) => {
+      const osc = ctx.createOscillator();
+      const hGain = ctx.createGain();
+
+      osc.connect(hGain);
+      hGain.connect(gain);
+
+      osc.type = i === 0 ? 'triangle' : 'sine';
+      osc.frequency.setValueAtTime(freq * harmonic, now);
+      hGain.gain.setValueAtTime([0.6, 0.3, 0.1][i], now);
+
+      osc.start(now);
+      osc.stop(now + 1.2);
+    });
 
     keyEl.classList.add('pressed');
     setTimeout(() => keyEl.classList.remove('pressed'), 200);
@@ -931,24 +946,28 @@
 
     noteCount++;
     document.getElementById('noteCount').textContent = noteCount;
+
     const spidey = document.getElementById('spideyHead');
     spidey.style.transform = 'scale(1.3) rotate(15deg)';
     setTimeout(() => spidey.style.transform = '', 300);
 
-    document.getElementById('spideyQuote').textContent =
-      spideyQuotes[Math.floor(Math.random() * spideyQuotes.length)];
+    const q = spideyQuotes[Math.floor(Math.random() * spideyQuotes.length)];
+    document.getElementById('spideyQuote').textContent = q;
   }
 
   function addKeyHandlers(el, freq) {
-    let activeTouch = false;
+    let touchHandled = false;
 
     const handler = async (e) => {
       e.preventDefault();
-      if (e.type === 'click' && activeTouch) return;
-      if (e.type === 'touchstart') activeTouch = true;
+
+      if (e.type === 'click' && touchHandled) return;
+      if (e.type === 'touchstart') touchHandled = true;
+
       await playNote(freq, el);
+
       if (e.type === 'touchstart') {
-        setTimeout(() => { activeTouch = false; }, 250);
+        setTimeout(() => { touchHandled = false; }, 300);
       }
     };
 
@@ -960,6 +979,7 @@
   function buildPiano() {
     const container = document.getElementById('pianoKeys');
     container.innerHTML = '';
+
     const whiteKeys = pianoNotes.filter(n => n.white);
     const keyWidth = Math.min(48, Math.max(34, Math.floor((window.innerWidth - 60) / whiteKeys.length)));
     container.style.width = (keyWidth * whiteKeys.length) + 'px';
@@ -975,7 +995,11 @@
 
     let wi = 0;
     pianoNotes.forEach((n) => {
-      if (n.white) { wi++; return; }
+      if (n.white) {
+        wi++;
+        return;
+      }
+
       const k = document.createElement('div');
       k.className = 'black-key';
       const bkWidth = Math.min(30, Math.max(22, Math.floor(keyWidth * 0.6)));
@@ -985,10 +1009,6 @@
       container.appendChild(k);
     });
   }
-
-  document.getElementById('startAudioBtn').addEventListener('click', async () => {
-    await unlockAudio();
-  });
 
   buildPiano();
   window.addEventListener('resize', buildPiano);
@@ -1002,5 +1022,6 @@
     spawnConfettiBurst(3);
   });
 </script>
+
 </body>
 </html>
